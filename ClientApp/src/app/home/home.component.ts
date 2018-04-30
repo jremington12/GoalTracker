@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-home',
@@ -21,10 +22,14 @@ export class HomeComponent {
   public username = '';
   public password = '';
 
+  public constructor(private _router: Router) {};
+
   public onLoginClicked(): void {
     console.log('username: ', this.username);
     console.log('password: ', this.password);
     this.reset();
+
+    this._router.navigate(['landing-page']);
   }
 
   private reset(): void {
