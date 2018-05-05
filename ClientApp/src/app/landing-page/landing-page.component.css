@@ -1,0 +1,14 @@
+.landing-container {
+  display: flex;
+  justify-content: left;
+}
+
+.item {
+  background-color: pink;
+  width: 50px;
+}
+
+.create-button {
+  margin-top: 40px;
+  margin-left: 40px;
+}

@@ -10,6 +10,8 @@ import { HomeComponent } from './home/home.component';
 import { CounterComponent } from './counter/counter.component';
 import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import {LandingPageComponent} from "./landing-page/landing-page.component";
+import {BootstrapModalModule, DialogService} from "ng2-bootstrap-modal";
+import {CreateLogModalComponent} from "./Shared/create-log-modal.component";
 
 @NgModule({
   declarations: [
@@ -18,12 +20,14 @@ import {LandingPageComponent} from "./landing-page/landing-page.component";
     HomeComponent,
     CounterComponent,
     FetchDataComponent,
-    LandingPageComponent
+    LandingPageComponent,
+    CreateLogModalComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     HttpClientModule,
     FormsModule,
+    BootstrapModalModule.forRoot({container:document.body}),
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'landing-page', component: LandingPageComponent },
@@ -31,7 +35,8 @@ import {LandingPageComponent} from "./landing-page/landing-page.component";
       { path: 'fetch-data', component: FetchDataComponent },
     ])
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [DialogService],
+  bootstrap: [AppComponent],
+  entryComponents: [CreateLogModalComponent]
 })
 export class AppModule { }
