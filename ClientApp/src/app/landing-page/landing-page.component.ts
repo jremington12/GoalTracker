@@ -35,3 +35,5 @@ export class LandingPageComponent {
     },10000);
   }
 }
+
+

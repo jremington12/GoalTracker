@@ -9,23 +9,31 @@ export interface ConfirmModel {
 @Component({
   selector: 'create-log-modal',
   styleUrls: [],
-  template: `<div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" (click)="close()" >&times;</button>
-        <h4 class="modal-title">{{title || 'Confirm'}}</h4>
-        <div>{{test}}</div>
-      </div>
-      <div class="modal-body">
-        <p>{{message || 'Are you sure?'}}</p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-primary" (click)="confirm()">OK</button>
-        <button type="button" class="btn btn-default" (click)="close()" >Cancel</button>
+  template: `<body>
+  <div class="background-gradient">
+    <div class="content center">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" (click)="close()" >&times;</button>
+            <input type="text" [(ngModel)]="title">
+          </div>
+          <div class="modal-body">
+            <input type="text" [(ngModel)]="message">
+            <p>{{message || 'Are you sure?'}}</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary" (click)="confirm()">OK</button>
+            <button type="button" class="btn btn-default" (click)="close()" >Cancel</button>
+          </div>
+        </div>
       </div>
     </div>
-  </div>`
+  </div>
+  </body>`
 })
+
+
 export class CreateLogModalComponent extends DialogComponent<ConfirmModel, boolean> implements ConfirmModel {
   title: string;
   message: string;
@@ -40,3 +48,5 @@ export class CreateLogModalComponent extends DialogComponent<ConfirmModel, boole
     this.close();
   }
 }
+
+
