@@ -1,6 +1,11 @@
 import { Component } from '@angular/core';
 import {DialogComponent, DialogService} from "ng2-bootstrap-modal";
 
+export enum LogTypes {
+  WeightLifting = 1,
+  Cardio = 2
+}
+
 export interface ConfirmModel {
   title:string;
   message:string;
@@ -9,28 +14,30 @@ export interface ConfirmModel {
 @Component({
   selector: 'create-log-modal',
   styleUrls: [],
-  template: `<body>
-  <div class="background-gradient">
-    <div class="content center">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" (click)="close()" >&times;</button>
-            <input type="text" [(ngModel)]="title">
-          </div>
-          <div class="modal-body">
-            <input type="text" [(ngModel)]="message">
-            <p>{{message || 'Are you sure?'}}</p>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-primary" (click)="confirm()">OK</button>
-            <button type="button" class="btn btn-default" (click)="close()" >Cancel</button>
-          </div>
+  template: `
+    <body>
+    <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Create a Log</h4>
+        <button type="button" class="close" (click)="close()" >&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label for="sel1">Select Log Type:</label>
+          <select class="form-control" id="sel1" [(ngModel)]="choice">
+            <option >Weight Lifting</option>
+            <option >Cardio</option>
+          </select>
         </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" (click)="confirm()">OK</button>
+        <button type="button" class="btn btn-default" (click)="close()" >Cancel</button>
       </div>
     </div>
   </div>
-  </body>`
+    </body>`
 })
 
 
@@ -38,6 +45,9 @@ export class CreateLogModalComponent extends DialogComponent<ConfirmModel, boole
   title: string;
   message: string;
   test: string;
+  choice: any;
+  logTypes: LogTypes;
+
   constructor(dialogService: DialogService) {
     super(dialogService);
   }
@@ -45,6 +55,8 @@ export class CreateLogModalComponent extends DialogComponent<ConfirmModel, boole
     // we set dialog result as true on click on confirm button,
     // then we can get dialog result from caller code
     this.result = true;
+    console.log('type: ', this.choice);
+    console.log('test: ', LogTypes.WeightLifting)
     this.close();
   }
 }
