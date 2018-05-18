@@ -12,6 +12,8 @@ import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import {LandingPageComponent} from "./landing-page/landing-page.component";
 import {BootstrapModalModule, DialogService} from "ng2-bootstrap-modal";
 import {CreateLogModalComponent} from "./Shared/create-log-modal.component";
+import {WeightliftingInputComponent} from "./input-components/weightlifting-input-component/weightlifting-input.component";
+import {CardioInputComponent} from "./input-components/cardio-input-component/cardio-input.component";
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import {CreateLogModalComponent} from "./Shared/create-log-modal.component";
     CounterComponent,
     FetchDataComponent,
     LandingPageComponent,
-    CreateLogModalComponent
+    CreateLogModalComponent,
+    WeightliftingInputComponent,
+    CardioInputComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),

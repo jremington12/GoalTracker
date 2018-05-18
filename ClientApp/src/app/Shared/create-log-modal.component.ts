@@ -26,10 +26,12 @@ export interface ConfirmModel {
         <div class="form-group">
           <label for="sel1">Select Log Type:</label>
           <select class="form-control" id="sel1" [(ngModel)]="choice">
-            <option >Weight Lifting</option>
-            <option >Cardio</option>
+            <option value="1">Weight Lifting</option>
+            <option value="2">Cardio</option>
           </select>
         </div>
+        <weight-lifting-input *ngIf="choice == 1"></weight-lifting-input>
+        <cardio-input *ngIf="choice == 2"></cardio-input>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-primary" (click)="confirm()">OK</button>
@@ -45,7 +47,7 @@ export class CreateLogModalComponent extends DialogComponent<ConfirmModel, boole
   title: string;
   message: string;
   test: string;
-  choice: any;
+  choice: any = -1;
   logTypes: LogTypes;
 
   constructor(dialogService: DialogService) {

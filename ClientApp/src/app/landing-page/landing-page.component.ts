@@ -32,7 +32,7 @@ export class LandingPageComponent {
     //If dialog was not closed manually close it by timeout
     setTimeout(()=>{
       disposable.unsubscribe();
-    },10000);
+    },30000);
   }
 }
 
