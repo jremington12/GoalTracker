@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {DialogComponent, DialogService} from "ng2-bootstrap-modal";
+import {LogSubectService} from "../Services/log-subect.service";
 
 export enum LogTypes {
   WeightLifting = 1,
@@ -49,17 +50,13 @@ export class CreateLogModalComponent extends DialogComponent<ConfirmModel, boole
   test: string;
   choice: any = -1;
   logTypes: LogTypes;
+  x: any;
 
-  constructor(dialogService: DialogService) {
+  constructor(dialogService: DialogService, private subject: LogSubectService) {
     super(dialogService);
   }
   confirm() {
-    // we set dialog result as true on click on confirm button,
-    // then we can get dialog result from caller code
-    this.result = true;
-    console.log('type: ', this.choice);
-    console.log('test: ', LogTypes.WeightLifting)
-    this.close();
+    this.subject.CreateWeightLiftingLog();
   }
 }
 

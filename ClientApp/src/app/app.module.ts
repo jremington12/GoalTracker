@@ -14,6 +14,8 @@ import {BootstrapModalModule, DialogService} from "ng2-bootstrap-modal";
 import {CreateLogModalComponent} from "./Shared/create-log-modal.component";
 import {WeightliftingInputComponent} from "./input-components/weightlifting-input-component/weightlifting-input.component";
 import {CardioInputComponent} from "./input-components/cardio-input-component/cardio-input.component";
+import {LogSubectService} from "./Services/log-subect.service";
+import {ApiService} from "./Services/api.service";
 
 @NgModule({
   declarations: [
@@ -39,7 +41,7 @@ import {CardioInputComponent} from "./input-components/cardio-input-component/ca
       { path: 'fetch-data', component: FetchDataComponent },
     ])
   ],
-  providers: [DialogService],
+  providers: [DialogService, LogSubectService, ApiService],
   bootstrap: [AppComponent],
   entryComponents: [CreateLogModalComponent]
 })
