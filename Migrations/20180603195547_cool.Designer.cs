@@ -11,9 +11,10 @@ using System;
 namespace GoalTracker.Migrations
 {
     [DbContext(typeof(GoalTrackerDbContext))]
-    partial class GoalTrackerDbContextModelSnapshot : ModelSnapshot
+    [Migration("20180603195547_cool")]
+    partial class cool
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

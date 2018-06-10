@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 
@@ -14,8 +14,11 @@ import {BootstrapModalModule, DialogService} from "ng2-bootstrap-modal";
 import {CreateLogModalComponent} from "./Shared/create-log-modal.component";
 import {WeightliftingInputComponent} from "./input-components/weightlifting-input-component/weightlifting-input.component";
 import {CardioInputComponent} from "./input-components/cardio-input-component/cardio-input.component";
-import {LogSubectService} from "./Services/log-subect.service";
+import {LogApiSubjectService} from "./Services/log-api-subject.service";
 import {ApiService} from "./Services/api.service";
+import {CurrentLogsComponent} from "./landing-page/current-logs/current-logs.component";
+import {SubjectService} from "./Services/subject-service";
+import {WeightLiftingLogDisplayComponent} from "./display-components/weight-lifting-log-display.component";
 
 @NgModule({
   declarations: [
@@ -27,12 +30,15 @@ import {ApiService} from "./Services/api.service";
     LandingPageComponent,
     CreateLogModalComponent,
     WeightliftingInputComponent,
-    CardioInputComponent
+    CardioInputComponent,
+    CurrentLogsComponent,
+    WeightLiftingLogDisplayComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
     BootstrapModalModule.forRoot({container:document.body}),
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
@@ -41,7 +47,7 @@ import {ApiService} from "./Services/api.service";
       { path: 'fetch-data', component: FetchDataComponent },
     ])
   ],
-  providers: [DialogService, LogSubectService, ApiService],
+  providers: [DialogService, LogApiSubjectService, ApiService, SubjectService],
   bootstrap: [AppComponent],
   entryComponents: [CreateLogModalComponent]
 })

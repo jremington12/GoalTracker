@@ -1,10 +1,12 @@
-export class WeightLiftingLog {
+import {Log} from "./log-base";
+
+export class WeightLiftingLog extends Log {
   public WeightLiftingLogId: number;
-  public Exercises: Array<WeightLiftingExercise>;
-  public Date: Date;
+  public Exercises: Array<WeightLiftingExercise> = [];
   public UserId: string;
   public TotalSets: number;
-  public NoLog: boolean;
+
+  public constructor() { super() };
 }
 
 export class WeightLiftingExercise {

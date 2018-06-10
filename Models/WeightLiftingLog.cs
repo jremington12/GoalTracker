@@ -13,5 +13,6 @@ namespace GoalTracker.Models
         public string UserId { get; set; }
         public int TotalSets { get; set; }
         public bool NoLog { get; set; }
+        public int LogType { get; set; }
     }
 }

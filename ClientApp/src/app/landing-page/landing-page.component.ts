@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {DialogService} from "ng2-bootstrap-modal";
+import {DialogOptions, DialogService} from "ng2-bootstrap-modal";
 import {CreateLogModalComponent} from "../Shared/create-log-modal.component";
 
 @Component({
@@ -7,18 +7,24 @@ import {CreateLogModalComponent} from "../Shared/create-log-modal.component";
   styleUrls: ['landing-page.component.css'],
   template: `<body>
                 <div class="landing-container">
-                  <button type="button" class="btn btn-primary create-button" (click)="onCreateClicked()">Create New Log</button>
+                  <div class="section"><current-logs class="section"></current-logs></div>
+                  <div class="section"><button type="button" class="btn btn-primary create-button" (click)="onCreateClicked()">Create New Log</button></div>
                 </div>
             </body>`
 })
 export class LandingPageComponent {
+  isCreating = false;
+
   constructor(private dialogService: DialogService) {}
 
   onCreateClicked(): void {
+    let options: DialogOptions = {};
+    options.backdropColor = 'white';
+
     let disposable = this.dialogService.addDialog(CreateLogModalComponent, {
       title:'Confirm title',
       message:'Confirm message',
-      test:'nice'})
+      test:'nice'}, options)
       .subscribe((isConfirmed)=>{
         //We get dialog result
         if(isConfirmed) {

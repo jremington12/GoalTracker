@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using GoalTracker.Database;
 using GoalTracker.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace GoalTracker.Controllers
 {
@@ -21,10 +22,19 @@ namespace GoalTracker.Controllers
         [HttpPost("[action]")]
         public ActionResult WeightLifting([FromBody] WeightLiftingLog test)
         {
+            test.Date = DateTime.Now;
             this._context.Add(test);
             this._context.SaveChanges();
 
-            return Ok("Great");
+            return Ok(test);
+        }
+
+        [HttpGet("[action]/{id?}")]
+        public ActionResult WeightLifting([FromQuery] string UserId)
+        {
+            var logs = this._context.WeightLiftingLogs.Include("Exercises");//.Where(x => x.UserId == UserId);
+
+            return Ok(logs);
         }
     }
     

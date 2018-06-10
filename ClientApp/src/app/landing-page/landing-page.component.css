@@ -11,4 +11,13 @@
 .create-button {
   margin-top: 40px;
   margin-left: 40px;
+  width: 175px;
+  height: 85px;
+}
+
+.section {
+}
+
+.blackout {
+  background-color: black;
 }

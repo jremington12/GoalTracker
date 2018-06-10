@@ -1,6 +1,7 @@
 using GoalTracker.Database;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SpaServices.AngularCli;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -23,6 +24,12 @@ namespace GoalTracker
             services.AddDbContext<GoalTrackerDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("GoalTracker")));
 
             services.AddMvc();
+
+            services.Configure<MvcJsonOptions>(options =>
+            {
+                options.SerializerSettings.ContractResolver
+                     = new Newtonsoft.Json.Serialization.DefaultContractResolver();
+            });
 
             // In production, the Angular files will be served from this directory
             services.AddSpaStaticFiles(configuration =>

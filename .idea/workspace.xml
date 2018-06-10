@@ -2,15 +2,24 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="76c38c45-5485-40dd-9dd1-679dd6d8a5a4" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/ClientApp/src/app/Services/api.service.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ClientApp/src/app/Services/log-subect.service.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ClientApp/src/app/models/weight-lifting-log-model.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ClientApp/src/app/Services/subject-service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ClientApp/src/app/display-components/weight-lifting-log-display.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ClientApp/src/app/landing-page/current-logs/current-logs.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ClientApp/src/app/landing-page/current-logs/current-logs.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ClientApp/src/app/models/log-base.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ClientApp/src/app/Services/api.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/app/Services/api.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ClientApp/src/app/Services/log-subect.service.ts" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/ClientApp/src/app/Shared/create-log-modal.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/app/Shared/create-log-modal.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ClientApp/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/app/app.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GoalTracker.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/GoalTracker.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ClientApp/src/app/input-components/weightlifting-input-component/weightlifting-input.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/app/input-components/weightlifting-input-component/weightlifting-input.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ClientApp/src/app/landing-page/landing-page.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/app/landing-page/landing-page.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ClientApp/src/app/landing-page/landing-page.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/app/landing-page/landing-page.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ClientApp/src/app/models/weight-lifting-log-model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/app/models/weight-lifting-log-model.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controllers/LogController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/LogController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Migrations/GoalTrackerDbContextModelSnapshot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Migrations/GoalTrackerDbContextModelSnapshot.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/WeightLiftingLog.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/WeightLiftingLog.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Startup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Startup.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/appsettings.json" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -27,8 +36,8 @@
       <file leaf-file-name="app.module.ts" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ClientApp/src/app/app.module.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="442">
-              <caret line="43" column="57" selection-start-line="43" selection-start-column="57" selection-end-line="43" selection-end-column="57" />
+            <state relative-caret-position="51">
+              <caret line="3" column="56" selection-start-line="3" selection-start-column="56" selection-end-line="3" selection-end-column="56" />
             </state>
           </provider>
         </entry>
@@ -36,74 +45,11 @@
       <file leaf-file-name="landing-page.component.ts" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ClientApp/src/app/landing-page/landing-page.component.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="20" column="9" selection-start-line="20" selection-start-column="9" selection-end-line="20" selection-end-column="9" />
+            <state relative-caret-position="357">
+              <caret line="23" column="70" selection-start-line="23" selection-start-column="70" selection-end-line="23" selection-end-column="70" />
               <folding>
                 <element signature="e#0#42#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="create-log-modal.component.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ClientApp/src/app/Shared/create-log-modal.component.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="222">
-              <caret line="36" column="32" selection-start-line="36" selection-start-column="32" selection-end-line="36" selection-end-column="32" />
-              <folding>
-                <element signature="e#0#42#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="log-subect.service.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ClientApp/src/app/Services/log-subect.service.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="6" selection-start-line="6" selection-end-line="6" />
-              <folding>
-                <element signature="e#0#41#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="api.service.ts" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/ClientApp/src/app/Services/api.service.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="141">
-              <caret line="20" selection-start-line="20" selection-end-line="20" />
-              <folding>
-                <element signature="e#0#75#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="http.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ClientApp/node_modules/@angular/common/esm2015/http.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="234">
-              <caret line="1314" column="4" selection-start-line="1314" selection-start-column="4" selection-end-line="1314" selection-end-column="4" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="weight-lifting-log-model.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ClientApp/src/app/models/weight-lifting-log-model.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="10" column="32" selection-start-line="10" selection-start-column="32" selection-end-line="10" selection-end-column="32" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="app.component.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ClientApp/src/app/app.component.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="4" column="33" selection-start-line="4" selection-start-column="33" selection-end-line="4" selection-end-column="33" />
             </state>
           </provider>
         </entry>
@@ -111,8 +57,75 @@
       <file leaf-file-name="landing-page.component.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ClientApp/src/app/landing-page/landing-page.component.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="12" column="19" selection-start-line="12" selection-start-column="19" selection-end-line="12" selection-end-column="19" />
+            <state relative-caret-position="357">
+              <caret line="21" column="26" selection-start-line="21" selection-start-column="26" selection-end-line="21" selection-end-column="26" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="create-log-modal.component.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ClientApp/src/app/Shared/create-log-modal.component.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1071">
+              <caret line="63" column="14" lean-forward="true" selection-start-line="63" selection-start-column="14" selection-end-line="63" selection-end-column="14" />
+              <folding>
+                <element signature="e#0#59#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="weightlifting-input.component.ts" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/ClientApp/src/app/input-components/weightlifting-input-component/weightlifting-input.component.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="480">
+              <caret line="30" lean-forward="true" selection-start-line="30" selection-end-line="30" />
+              <folding>
+                <element signature="e#0#48#0" expanded="true" />
+                <element signature="n#style#0;n#button#1;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="current-logs.component.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ClientApp/src/app/landing-page/current-logs/current-logs.component.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="19" column="44" lean-forward="true" selection-start-line="19" selection-start-column="44" selection-end-line="19" selection-end-column="44" />
+              <folding>
+                <element signature="e#0#48#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="weight-lifting-log-model.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ClientApp/src/app/models/weight-lifting-log-model.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="187">
+              <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="api.service.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ClientApp/src/app/Services/api.service.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="170">
+              <caret line="14" column="66" selection-start-line="14" selection-start-column="66" selection-end-line="14" selection-end-column="66" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="log-api-subject.service.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ClientApp/src/app/Services/log-api-subject.service.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="119">
+              <caret line="11" column="59" selection-start-line="11" selection-start-column="59" selection-end-line="11" selection-end-column="59" />
+              <folding>
+                <element signature="e#0#41#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -137,6 +150,20 @@
       <find>title</find>
       <find>T</find>
       <find>response</find>
+      <find>onWeightLiftingLogRetrieved</find>
+      <find>onWeightLiftingLogRetrieved.</find>
+      <find>totalSets</find>
+      <find>padding: 30px</find>
+      <find>modal fad</find>
+      <find>ex</find>
+      <find>confirm</find>
+      <find>formbuil</find>
+      <find>forms</find>
+      <find>exerciseName</find>
+      <find>form</find>
+      <find>createwei</find>
+      <find>creat</find>
+      <find>dialogService</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -152,18 +179,25 @@
         <option value="$PROJECT_DIR$/ClientApp/src/app/app.component.html" />
         <option value="$PROJECT_DIR$/ClientApp/src/styles.css" />
         <option value="$PROJECT_DIR$/ClientApp/src/app/home/home.component.ts" />
-        <option value="$PROJECT_DIR$/ClientApp/src/app/landing-page/landing-page.component.css" />
         <option value="$PROJECT_DIR$/ClientApp/src/app/input-components/weightlifting-input-component/weightlifting-input.component" />
-        <option value="$PROJECT_DIR$/ClientApp/src/app/landing-page/landing-page.component.ts" />
-        <option value="$PROJECT_DIR$/ClientApp/src/app/input-components/weightlifting-input-component/weightlifting-input.component.ts" />
         <option value="$PROJECT_DIR$/ClientApp/src/app/input-components/cardio-input-component/cardio-input.component.ts" />
         <option value="$PROJECT_DIR$/ClientApp/src/app/Services/LogSubject.ts" />
-        <option value="$PROJECT_DIR$/ClientApp/src/app/Shared/create-log-modal.component.ts" />
-        <option value="$PROJECT_DIR$/ClientApp/src/app/app.module.ts" />
-        <option value="$PROJECT_DIR$/ClientApp/src/app/Services/log-subect.service.ts" />
         <option value="$PROJECT_DIR$/ClientApp/src/app/models/weight-lifting-model.ts" />
+        <option value="$PROJECT_DIR$/ClientApp/src/app/Services/subject-service.ts" />
+        <option value="$PROJECT_DIR$/ClientApp/src/app/Services/log-subect.service.ts" />
+        <option value="$PROJECT_DIR$/ClientApp/src/app/landing-page/current-logs/current-logs.component.css" />
+        <option value="$PROJECT_DIR$/ClientApp/src/app/shared/create-log-modal.component.ts" />
+        <option value="$PROJECT_DIR$/ClientApp/src/app/models/log-base.ts" />
+        <option value="$PROJECT_DIR$/ClientApp/src/app/display-components/weight-lifting-log-display.component.ts" />
+        <option value="$PROJECT_DIR$/ClientApp/src/app/landing-page/current-logs/current-logs.component.ts" />
+        <option value="$PROJECT_DIR$/ClientApp/src/app/landing-page/landing-page.component.css" />
+        <option value="$PROJECT_DIR$/ClientApp/src/app/landing-page/landing-page.component.ts" />
         <option value="$PROJECT_DIR$/ClientApp/src/app/models/weight-lifting-log-model.ts" />
+        <option value="$PROJECT_DIR$/ClientApp/src/app/app.module.ts" />
         <option value="$PROJECT_DIR$/ClientApp/src/app/Services/api.service.ts" />
+        <option value="$PROJECT_DIR$/ClientApp/src/app/Services/log-api-subject.service.ts" />
+        <option value="$PROJECT_DIR$/ClientApp/src/app/Shared/create-log-modal.component.ts" />
+        <option value="$PROJECT_DIR$/ClientApp/src/app/input-components/weightlifting-input-component/weightlifting-input.component.ts" />
       </list>
     </option>
   </component>
@@ -185,7 +219,7 @@
     <option name="x" value="-15" />
     <option name="y" value="-15" />
     <option name="width" value="3875" />
-    <option name="height" value="2095" />
+    <option name="height" value="2195" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -193,6 +227,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -224,7 +259,7 @@
               <item name="ClientApp" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="models" type="462c0819:PsiDirectoryNode" />
+              <item name="display-components" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="GoalTrackerRepo" type="b2602c69:ProjectViewProjectNode" />
@@ -232,23 +267,39 @@
               <item name="ClientApp" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="Services" type="462c0819:PsiDirectoryNode" />
+              <item name="input-components" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="GoalTrackerRepo" type="b2602c69:ProjectViewProjectNode" />
+              <item name="GoalTrackerRepo" type="462c0819:PsiDirectoryNode" />
+              <item name="ClientApp" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="input-components" type="462c0819:PsiDirectoryNode" />
+              <item name="weightlifting-input-component" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="GoalTrackerRepo" type="b2602c69:ProjectViewProjectNode" />
+              <item name="GoalTrackerRepo" type="462c0819:PsiDirectoryNode" />
+              <item name="ClientApp" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="models" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="SearchEverywhereHistoryKey" value="bootstrap&#9;FILE&#9;file://C:/Dev/GoalTrackerRepo/ClientApp/node_modules/bootstrap/dist/css/bootstrap-grid.min.css&#10;rout&#9;null&#9;null&#10;package.js&#9;FILE&#9;file://C:/Dev/GoalTrackerRepo/ClientApp/package.json&#10;angular-cli&#9;FILE&#9;file://C:/Dev/GoalTrackerRepo/ClientApp/.angular-cli.json&#10;bootstra&#9;FILE&#9;file://C:/Dev/GoalTrackerRepo/ClientApp/node_modules/bootstrap/dist/css/bootstrap-grid.css&#10;styles&#9;FILE&#9;file://C:/Dev/GoalTrackerRepo/ClientApp/.idea/codeStyles&#10;styles.&#9;FILE&#9;file://C:/Dev/GoalTrackerRepo/ClientApp/src/styles.css" />
+    <property name="SearchEverywhereHistoryKey" value="create-log&#9;FILE&#9;file://C:/Dev/GoalTrackerRepo/ClientApp/src/app/Shared/create-log-modal.component.ts&#10;land&#9;FILE&#9;file://C:/Dev/GoalTrackerRepo/ClientApp/src/app/landing-page/landing-page.component.ts&#10;landing&#9;FILE&#9;file://C:/Dev/GoalTrackerRepo/ClientApp/src/app/landing-page/landing-page.component.ts&#10;bootstrap&#9;FILE&#9;file://C:/Dev/GoalTrackerRepo/ClientApp/node_modules/bootstrap/dist/css/bootstrap-grid.min.css&#10;rout&#9;null&#9;null&#10;package.js&#9;FILE&#9;file://C:/Dev/GoalTrackerRepo/ClientApp/package.json&#10;angular-cli&#9;FILE&#9;file://C:/Dev/GoalTrackerRepo/ClientApp/.angular-cli.json&#10;bootstra&#9;FILE&#9;file://C:/Dev/GoalTrackerRepo/ClientApp/node_modules/bootstrap/dist/css/bootstrap-grid.css&#10;styles&#9;FILE&#9;file://C:/Dev/GoalTrackerRepo/ClientApp/.idea/codeStyles&#10;styles.&#9;FILE&#9;file://C:/Dev/GoalTrackerRepo/ClientApp/src/styles.css" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="settings.editor.selected.configurable" value="configurable.group.editor" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
     <property name="ts.external.directory.path" value="$PROJECT_DIR$/ClientApp/node_modules/typescript/lib" />
   </component>
   <component name="RunDashboard">
@@ -282,64 +333,57 @@
       <workItem from="1525554241480" duration="385000" />
       <workItem from="1525745130475" duration="1301000" />
       <workItem from="1525888915222" duration="61000" />
+      <workItem from="1527202898300" duration="6672000" />
+      <workItem from="1527973530496" duration="3314000" />
+      <workItem from="1528052045390" duration="21745000" />
+      <workItem from="1528656354990" duration="4369000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="40074000" />
+    <option name="totallyTimeSpent" value="80032000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-6" y="-6" width="1549" height="837" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TypeScript" order="7" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22901757" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21340273" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
-      <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Version Control" order="7" />
+      <window_info anchor="bottom" id="Run" order="2" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="7" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Version Control" order="7" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17334779" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="TypeScript" order="7" />
-      <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Terminal" order="7" />
-      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info active="true" anchor="bottom" id="Find" order="1" visible="true" weight="0.23770492" />
     </layout>
     <layout-to-restore>
+      <window_info anchor="bottom" id="Version Control" order="11" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17371503" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21340273" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="TypeScript" order="8" />
       <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Terminal" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Version Control" order="11" />
-      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" />
       <window_info id="Favorites" order="2" side_tool="true" />
     </layout-to-restore>
   </component>
@@ -355,44 +399,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/ClientApp/src/styles.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="918">
-          <caret line="54" column="12" selection-start-line="54" selection-start-column="12" selection-end-line="54" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ClientApp/src/app/app.module.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="663">
-          <caret line="39" column="43" selection-start-line="39" selection-start-column="43" selection-end-line="39" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ClientApp/src/app/landing-page/landing-page.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="20" column="16" selection-start-line="20" selection-start-column="16" selection-end-line="20" selection-end-column="16" />
-          <folding>
-            <element signature="e#0#42#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ClientApp/src/app/app.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="33" lean-forward="true" selection-start-line="4" selection-start-column="33" selection-end-line="4" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ClientApp/src/app/app.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" selection-start-line="2" selection-end-line="2" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ClientApp/src/app/landing-page/landing-page.component.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
@@ -405,7 +411,7 @@
         <state relative-caret-position="391">
           <caret line="24" column="12" lean-forward="true" selection-start-line="24" selection-start-column="12" selection-end-line="24" selection-end-column="12" />
           <folding>
-            <element signature="e#0#42#0" expanded="true" />
+            <element signature="e#0#59#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -439,7 +445,7 @@
         <state relative-caret-position="289">
           <caret line="18" column="22" lean-forward="true" selection-start-line="18" selection-start-column="22" selection-end-line="18" selection-end-column="22" />
           <folding>
-            <element signature="e#0#42#0" expanded="true" />
+            <element signature="e#0#59#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -621,13 +627,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ClientApp/src/app/landing-page/landing-page.component.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="19" selection-start-line="12" selection-start-column="19" selection-end-line="12" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ClientApp/src/app/app.component.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
@@ -636,22 +635,12 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ClientApp/src/app/input-components/weightlifting-input-component/weightlifting-input.component" />
-    <entry file="file://$PROJECT_DIR$/ClientApp/src/app/input-components/weightlifting-input-component/weightlifting-input.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="39" selection-start-line="4" selection-start-column="39" selection-end-line="4" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ClientApp/src/app/input-components/cardio-input-component/cardio-input.component.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="425">
           <caret line="25" column="1" selection-start-line="25" selection-start-column="1" selection-end-line="25" selection-end-column="1" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ClientApp/src/app/Services/LogSubject.ts">
-      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/ClientApp/node_modules/@angular/common/esm5/http.js">
       <provider selected="true" editor-type-id="text-editor">
@@ -660,23 +649,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ClientApp/src/app/app.module.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="43" column="57" selection-start-line="43" selection-start-column="57" selection-end-line="43" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ClientApp/node_modules/ng2-bootstrap-modal/src/dialog.service.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ClientApp/node_modules/@angular/common/esm2015/http.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
+        <state relative-caret-position="22168">
           <caret line="1314" column="4" selection-start-line="1314" selection-start-column="4" selection-end-line="1314" selection-end-column="4" />
         </state>
       </provider>
@@ -688,49 +663,126 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ClientApp/src/app/models/weight-lifting-log-model.ts">
+    <entry file="file://$PROJECT_DIR$/ClientApp/src/app/landing-page/current-logs/current-logs.component.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" selection-start-line="3" selection-end-line="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ClientApp/src/app/models/log-base.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
-          <caret line="10" column="32" selection-start-line="10" selection-start-column="32" selection-end-line="10" selection-end-column="32" />
+          <caret line="10" selection-start-line="10" selection-end-line="10" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ClientApp/src/app/Shared/create-log-modal.component.ts">
+    <entry file="file://$PROJECT_DIR$/ClientApp/src/app/Services/subject-service.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="222">
-          <caret line="36" column="32" selection-start-line="36" selection-start-column="32" selection-end-line="36" selection-end-column="32" />
-          <folding>
-            <element signature="e#0#42#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ClientApp/src/app/landing-page/landing-page.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="20" column="9" selection-start-line="20" selection-start-column="9" selection-end-line="20" selection-end-column="9" />
-          <folding>
-            <element signature="e#0#42#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ClientApp/src/app/Services/log-subect.service.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" selection-start-line="6" selection-end-line="6" />
+        <state relative-caret-position="119">
+          <caret line="7" column="31" selection-start-line="7" selection-start-column="9" selection-end-line="7" selection-end-column="36" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/ClientApp/src/app/display-components/weight-lifting-log-display.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="163">
+          <caret line="12" column="140" selection-start-line="12" selection-start-column="140" selection-end-line="12" selection-end-column="140" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ClientApp/node_modules/ng2-bootstrap-modal/src/dialog.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ClientApp/src/app/landing-page/landing-page.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="23" column="70" selection-start-line="23" selection-start-column="70" selection-end-line="23" selection-end-column="70" />
+          <folding>
+            <element signature="e#0#42#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ClientApp/src/app/app.module.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="56" selection-start-line="3" selection-start-column="56" selection-end-line="3" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ClientApp/node_modules/typescript/lib/lib.dom.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="129">
+          <caret line="13285" column="4" selection-start-line="13285" selection-start-column="4" selection-end-line="13285" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ClientApp/src/app/landing-page/landing-page.component.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="21" column="26" selection-start-line="21" selection-start-column="26" selection-end-line="21" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ClientApp/src/app/models/weight-lifting-log-model.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/ClientApp/src/app/Services/api.service.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="141">
-          <caret line="20" selection-start-line="20" selection-end-line="20" />
+        <state relative-caret-position="170">
+          <caret line="14" column="66" selection-start-line="14" selection-start-column="66" selection-end-line="14" selection-end-column="66" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ClientApp/src/app/landing-page/current-logs/current-logs.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="19" column="44" lean-forward="true" selection-start-line="19" selection-start-column="44" selection-end-line="19" selection-end-column="44" />
           <folding>
-            <element signature="e#0#75#0" expanded="true" />
+            <element signature="e#0#48#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ClientApp/src/app/Services/log-api-subject.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="11" column="59" selection-start-line="11" selection-start-column="59" selection-end-line="11" selection-end-column="59" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ClientApp/src/app/Shared/create-log-modal.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1071">
+          <caret line="63" column="14" lean-forward="true" selection-start-line="63" selection-start-column="14" selection-end-line="63" selection-end-column="14" />
+          <folding>
+            <element signature="e#0#59#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ClientApp/src/app/input-components/weightlifting-input-component/weightlifting-input.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="30" lean-forward="true" selection-start-line="30" selection-end-line="30" />
+          <folding>
+            <element signature="e#0#48#0" expanded="true" />
+            <element signature="n#style#0;n#button#1;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
