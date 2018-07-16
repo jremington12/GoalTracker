@@ -7,14 +7,14 @@ import {LogType} from "../../models/log-base";
 @Component({
   selector: 'current-logs',
   styleUrls: ['current-logs.component.css'],
-  template: `<body>
+  template: `
                 <div class="card current-logs-container"> 
-                  <div class="card-header" style="font-weight: bold">Today's Logs:</div>
+                  <div class="card-header" style="font-weight: bold; color: white;">Today's Logs:</div>
                   <div *ngFor="let log of logs">
                     <weight-lifting-log-display *ngIf="log.LogType == logType.WeightLiftingLog" [weightLiftingLog]="log"></weight-lifting-log-display>
                   </div>
                 </div>
-            </body>`
+            `
 })
 export class CurrentLogsComponent implements OnInit {
   public logs: Array<WeightLiftingLog> = [];

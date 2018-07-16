@@ -1,6 +1,8 @@
 using GoalTracker.Database;
+using GoalTracker.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SpaServices.AngularCli;
 using Microsoft.EntityFrameworkCore;
@@ -22,6 +24,10 @@ namespace GoalTracker
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<GoalTrackerDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("GoalTracker")));
+
+            services.AddIdentity<ApplicationUser, IdentityRole>()
+                .AddEntityFrameworkStores<GoalTrackerDbContext>()
+                .AddDefaultTokenProviders();
 
             services.AddMvc();
 

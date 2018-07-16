@@ -15,15 +15,6 @@ body {
   color: #777777;
 }
 
-.home-page-container {
-
-}
-
-.content {
-  position: absolute;
-  text-align: center;
-}
-
 .background-gradient {
   background-image: linear-gradient(
     to right, #D38312, #A83279);

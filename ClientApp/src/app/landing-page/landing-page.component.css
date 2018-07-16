@@ -1,6 +1,36 @@
+.container {
+  max-width: 120rem;
+  margin: auto;
+  padding-left: 0px;
+  padding-right: 0px
+}
+
 .landing-container {
   display: flex;
   justify-content: left;
+}
+
+.header {
+  height: 7rem;
+  background-color: #E25D33;
+  border-bottom: #D38312;
+  display: flex;
+  align-items: center;
+}
+
+.title {
+  color: white;
+  font-size: 30px;
+  margin-left: 3rem;
+}
+
+.title:hover {
+  color: #fff;
+  cursor: pointer;
+ }
+
+.content {
+  display: flex;
 }
 
 .item {
@@ -20,4 +50,67 @@
 
 .blackout {
   background-color: black;
+}
+
+/***************************/
+.foursquare-row {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-flow: row;
+  justify-content: space-around;
+
+  line-height:30px;
+}
+
+.square {
+  border: 2px solid;
+  border-color: #D38312;
+  margin: 5px;
+  font-weight: bold;
+  font-size: 1.5em;
+  text-align: center;
+  flex: 1 0 0;
+  height:auto;
+  width: 300px;
+  border-radius: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.square-text {
+}
+
+.square:hover {
+  cursor: pointer;
+  background-color: lightblue;
+}
+
+.square:before {
+  content:'';
+  float:left;
+  padding-top:100%;
+}
+
+.reef {
+  display: flex;
+  flex-direction: column;
+}
+
+.log-list {
+  flex: 0 0 18%;
+}
+
+.main-area {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  flex-direction: column;
 }

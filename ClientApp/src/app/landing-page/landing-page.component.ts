@@ -6,9 +6,25 @@ import {CreateLogModalComponent} from "../Shared/create-log-modal.component";
   selector: 'landing-page',
   styleUrls: ['landing-page.component.css'],
   template: `<body>
-                <div class="landing-container">
-                  <div class="section"><current-logs class="section"></current-logs></div>
-                  <div class="section"><button type="button" class="btn btn-primary create-button" (click)="onCreateClicked()">Create New Log</button></div>
+                <div class="container">
+                  <header class="header">
+                    <div class="title">Goal Tracker</div>
+                  </header>
+                  <div class="content">
+                    <div class="log-list">
+                      <current-logs></current-logs>
+                    </div>
+                    <main class="main-area">
+                      <div class="foursquare-row">
+                        <div class="square" (click)="onCreateClicked()"><span class="square-text">Begin a New Log</span></div>
+                        <div class="square"><span class="square-text">Reports</span></div>
+                      </div>
+                      <div class="foursquare-row">
+                        <div class="square"><span class="square-text">Visualizations</span></div>
+                        <div class="square"><span class="square-text">Ongoing Logs</span></div>
+                      </div>
+                    </main>
+                  </div>
                 </div>
             </body>`
 })

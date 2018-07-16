@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {WeightLiftingExercise, WeightLiftingLog} from "../../models/weight-lifting-log-model";
-import {FormArray, FormControl, FormGroup, FormBuilder} from "@angular/forms";
+import {FormArray, FormControl, FormGroup, FormBuilder, Validators} from "@angular/forms";
+import {AbstractControlOptions} from "@angular/forms/src/model";
 
 @Component({
   selector: 'weight-lifting-input',
@@ -14,7 +15,7 @@ import {FormArray, FormControl, FormGroup, FormBuilder} from "@angular/forms";
     
     <form [formGroup]="weightLiftingLogForm">
       <fieldset formArrayName="exercises">
-        <div *ngFor="let e of weightLiftingLogForm.get('exercises').controls; let i = index">
+        <div *ngFor="let e of formData['controls']; let i = index">
           <form [formGroup]="e">
           <input type="text" class="form-control" [attr.id]="'exerciseName'+i" formControlName="Name" placeholder="Exercise Name" aria-label="Username" aria-describedby="basic-addon1">
             <input type="number" class="form-control" formControlName="Sets" placeholder="Sets" aria-label="Username" aria-describedby="basic-addon1">
@@ -60,6 +61,7 @@ export class WeightliftingInputComponent implements OnInit {
 
   onClickedAddNewExercise(): void {
     this.formData['controls'].push(this.createNewExerciseGroup());
+    console.log(this.weightLiftingLogForm);
   }
 
   getWeightLiftingLog(): WeightLiftingLog {
@@ -89,10 +91,10 @@ export class WeightliftingInputComponent implements OnInit {
 
   private createNewExerciseGroup(): FormGroup {
     let group: FormGroup = new FormGroup({
-      'Name': new FormControl(null),
-      'Sets': new FormControl(null),
-      'Reps': new FormControl(null),
-      'Weight': new FormControl(null)
+      'Name': new FormControl(null, Validators.required),
+      'Sets': new FormControl(null, Validators.required),
+      'Reps': new FormControl(null, Validators.required),
+      'Weight': new FormControl(null, Validators.required)
     });
 
     return group;

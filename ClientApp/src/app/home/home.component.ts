@@ -4,8 +4,9 @@ import {Router} from "@angular/router";
 @Component({
   selector: 'app-home',
   template: `<body>
+                
                 <div class="background-gradient">
-                  <div class="content center">
+                  <div class="content center" style="position: absolute; text-align: center;">
                     <span class="heading-primary">Goal Tracker</span>
 
                     <div class="input-group mb-3">
