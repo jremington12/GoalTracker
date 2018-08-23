@@ -25,9 +25,8 @@ namespace GoalTracker
         {
             services.AddDbContext<GoalTrackerDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("GoalTracker")));
 
-            services.AddIdentity<ApplicationUser, IdentityRole>()
-                .AddEntityFrameworkStores<GoalTrackerDbContext>()
-                .AddDefaultTokenProviders();
+            services.AddIdentity<IdentityUser, IdentityRole>()
+                .AddEntityFrameworkStores<GoalTrackerDbContext>();
 
             services.AddMvc();
 
@@ -36,6 +35,8 @@ namespace GoalTracker
                 options.SerializerSettings.ContractResolver
                      = new Newtonsoft.Json.Serialization.DefaultContractResolver();
             });
+
+            services.ConfigureApplicationCookie(options => options.LoginPath = "/login");
 
             // In production, the Angular files will be served from this directory
             services.AddSpaStaticFiles(configuration =>

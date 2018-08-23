@@ -11,40 +11,22 @@ using Microsoft.EntityFrameworkCore;
 namespace GoalTracker.Controllers
 {
     [Route("[controller]")]
-    public class LogController<T> : Controller where T : LogBase
+    public class WeightLiftingLogController : LogController<WeightLiftingLog>
     {
-        public GoalTrackerDbContext _context { get; set; }
+        //public GoalTrackerDbContext _context { get; set; }
 
-        public LogController(GoalTrackerDbContext context)
+        public WeightLiftingLogController(GoalTrackerDbContext _context) : base(_context)
         {
-            _context = context;
-        }
-
-        [HttpPost("[action]")]
-        public ActionResult Post([FromBody] T log)
-        {
-            log.CreatedDate = DateTimeOffset.Now;
-            this._context.Add(log);
-            this._context.SaveChanges();
-
-            return Ok(log);
-        }
-
-        [HttpGet("[action]")]
-        public ActionResult Get([FromQuery] Guid UserId)
-        {
-            var weightLiftingLog = this._context.WeightLiftingLogs.Include("Exercises").Where(x => x.UserId == UserId && x.CreatedDate.Day == DateTimeOffset.Now.Day).FirstOrDefault();
-            return Ok(weightLiftingLog);
         }
 
         //[HttpPost("[action]")]
-        //public ActionResult WeightLifting([FromBody] WeightLiftingLog test)
+        //public ActionResult Post([FromBody] WeightLiftingLog weightLiftingLog)
         //{
-        //    test.CreatedDate = DateTimeOffset.Now;
-        //    this._context.Add(test);
+        //    weightLiftingLog.CreatedDate = DateTimeOffset.Now;
+        //    this._context.Add(weightLiftingLog);
         //    this._context.SaveChanges();
 
-        //    return Ok(test);
+        //    return Ok(weightLiftingLog);
         //}
 
 

@@ -19,6 +19,9 @@ import {ApiService} from "./Services/api.service";
 import {CurrentLogsComponent} from "./landing-page/current-logs/current-logs.component";
 import {SubjectService} from "./Services/subject-service";
 import {WeightLiftingLogDisplayComponent} from "./display-components/weight-lifting-log-display.component";
+import {OAuthModule} from "angular-oauth2-oidc";
+import {SharedApplicationStateService} from "./Services/shared-application-state.service";
+import {BeginNewLogModalComponent} from "./input-components/begin-new-log-modal.component";
 
 @NgModule({
   declarations: [
@@ -32,23 +35,26 @@ import {WeightLiftingLogDisplayComponent} from "./display-components/weight-lift
     WeightliftingInputComponent,
     CardioInputComponent,
     CurrentLogsComponent,
-    WeightLiftingLogDisplayComponent
+    WeightLiftingLogDisplayComponent,
+    BeginNewLogModalComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    OAuthModule.forRoot(),
     BootstrapModalModule.forRoot({container:document.body}),
     RouterModule.forRoot([
-      { path: '', component: HomeComponent, pathMatch: 'full' },
+      { path: 'login', component: HomeComponent, pathMatch: 'full' },
       { path: 'landing-page', component: LandingPageComponent },
       { path: 'counter', component: CounterComponent },
       { path: 'fetch-data', component: FetchDataComponent },
+      { path: '', component: HomeComponent }
     ])
   ],
-  providers: [DialogService, LogApiSubjectService, ApiService, SubjectService],
+  providers: [DialogService, LogApiSubjectService, ApiService, SubjectService, SharedApplicationStateService],
   bootstrap: [AppComponent],
-  entryComponents: [CreateLogModalComponent]
+  entryComponents: [CreateLogModalComponent, BeginNewLogModalComponent]
 })
 export class AppModule { }

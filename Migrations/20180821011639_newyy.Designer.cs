@@ -12,9 +12,10 @@ using System;
 namespace GoalTracker.Migrations
 {
     [DbContext(typeof(GoalTrackerDbContext))]
-    partial class GoalTrackerDbContextModelSnapshot : ModelSnapshot
+    [Migration("20180821011639_newyy")]
+    partial class newyy
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -25,6 +26,12 @@ namespace GoalTracker.Migrations
                 {
                     b.Property<int>("LogRecordId")
                         .ValueGeneratedOnAdd();
+
+                    b.Property<bool>("Deleted");
+
+                    b.Property<int>("LogType");
+
+                    b.Property<DateTimeOffset>("StartDate");
 
                     b.Property<Guid>("UserId");
 
@@ -61,8 +68,6 @@ namespace GoalTracker.Migrations
                         .ValueGeneratedOnAdd();
 
                     b.Property<DateTimeOffset>("CreatedDate");
-
-                    b.Property<bool>("Deleted");
 
                     b.Property<int>("LogType");
 

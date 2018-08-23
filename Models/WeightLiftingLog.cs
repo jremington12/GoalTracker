@@ -5,14 +5,11 @@ using System.Threading.Tasks;
 
 namespace GoalTracker.Models
 {
-    public class WeightLiftingLog
+    public class WeightLiftingLog : LogBase
     {
         public int WeightLiftingLogId { get; set; }
         public List<WeightLiftingExercise> Exercises { get; set; }
-        public DateTimeOffset Date { get; set; }
-        public string UserId { get; set; }
+        public Guid UserId { get; set; }
         public int TotalSets { get; set; }
-        public bool NoLog { get; set; }
-        public int LogType { get; set; }
     }
 }
