@@ -62,18 +62,19 @@ export class BeginNewLogModalComponent extends DialogComponent<ConfirmModel, boo
     this.apiSubject.CreateLogRecord(logRecord);
   }
 
-  onWeightLiftingLogCreated(result: WeightLiftingLog) {
-    console.log('It worked for post!: ', result);
-    this.apiSubject.GetWeightLiftingLog();
-  }
+  onLogRecordCreated(result: LogRecord): void {
+    if (!result) {
+      return;
+    }
 
-  onWeightLiftingLogRetrieved(result: Array<WeightLiftingLog>) {
-    console.log('It worked for get!: ', result);
+    console.log('removing!: ', result);
+    //this.subject.onLogRecordCreated.unsubscribe();
+    this.dialogService.removeDialog(this);
+    this.subject.onLogRecordCreated.next(null);
   }
 
   initializeSubscriptions(): void {
-    this.subject.onWeightLiftingLogCreated.subscribe(result => this.onWeightLiftingLogCreated(result));
-    //this.subject.onWeightLiftingLogRetrieved.subscribe(result => this.onWeightLiftingLogRetrieved(result));
+    this.subject.onLogRecordCreated.subscribe(r => this.onLogRecordCreated(r));
   }
 }
 

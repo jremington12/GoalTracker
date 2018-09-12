@@ -26,6 +26,12 @@ namespace GoalTracker.Migrations
                     b.Property<int>("LogRecordId")
                         .ValueGeneratedOnAdd();
 
+                    b.Property<bool>("Deleted");
+
+                    b.Property<int>("LogType");
+
+                    b.Property<DateTimeOffset>("StartDate");
+
                     b.Property<Guid>("UserId");
 
                     b.HasKey("LogRecordId");
@@ -57,7 +63,7 @@ namespace GoalTracker.Migrations
 
             modelBuilder.Entity("GoalTracker.Models.WeightLiftingLog", b =>
                 {
-                    b.Property<int>("WeightLiftingLogId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
                     b.Property<DateTimeOffset>("CreatedDate");
@@ -72,7 +78,7 @@ namespace GoalTracker.Migrations
 
                     b.Property<Guid>("UserId");
 
-                    b.HasKey("WeightLiftingLogId");
+                    b.HasKey("Id");
 
                     b.ToTable("WeightLiftingLogs");
                 });

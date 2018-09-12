@@ -15,62 +15,51 @@ namespace GoalTracker.Controllers
     {
         public GoalTrackerDbContext _context { get; set; }
 
-        public LogController(GoalTrackerDbContext context)
+        public ILogRepository<T> _repository { get; set; }
+
+        public LogController(GoalTrackerDbContext context, ILogRepository<T> repository)
         {
             _context = context;
+            _repository = repository;
+        }
+
+        [HttpGet("[action]")]
+        public ActionResult Get([FromQuery] Guid UserId)
+        {
+            var weightLiftingLog = _repository.QueryByUserId(UserId);
+            return Ok(weightLiftingLog);
+        }
+
+        [HttpGet("[action]")]
+        public ActionResult GetToday([FromQuery] Guid UserId)
+        {
+            var log = _repository.QueryTodayByUserId(UserId);
+            return Ok(log);
         }
 
         [HttpPost("[action]")]
         public ActionResult Post([FromBody] T log)
         {
             log.CreatedDate = DateTimeOffset.Now;
-            this._context.Add(log);
-            this._context.SaveChanges();
+            this._repository.Add(log);
 
             return Ok(log);
         }
 
-        [HttpGet("[action]")]
-        public ActionResult Get([FromQuery] Guid UserId)
+        [HttpPut("[action]")]
+        public ActionResult Put([FromBody] T log)
         {
-            var weightLiftingLog = this._context.WeightLiftingLogs.Include("Exercises").Where(x => x.UserId == UserId && x.CreatedDate.Day == DateTimeOffset.Now.Day).FirstOrDefault();
-            return Ok(weightLiftingLog);
+            this._repository.Update(log);
+            return Ok(log);
         }
 
-        //[HttpPost("[action]")]
-        //public ActionResult WeightLifting([FromBody] WeightLiftingLog test)
-        //{
-        //    test.CreatedDate = DateTimeOffset.Now;
-        //    this._context.Add(test);
-        //    this._context.SaveChanges();
-
-        //    return Ok(test);
-        //}
-
-
-        //[HttpGet("[action]/{id?}")]
-        //public ActionResult WeightLifting([FromQuery] Guid UserId)
-        //{
-        //    var log = this._context.WeightLiftingLogs.Include("Exercises").Where(x => x.UserId == UserId).FirstOrDefault();
-
-        //    return Ok(log);
-        //}
-
-        //[HttpPost("[action]")]
-        //public ActionResult LogRecord([FromBody] LogRecord logRecord)
-        //{
-        //    this._context.Add(logRecord);
-        //    this._context.SaveChanges();
-
-        //    return Ok("logRecord");
-        //}
-
-        //[HttpGet("[action]")]
-        //public ActionResult LogRecord([FromQuery] Guid userId)
-        //{
-        //    var logs = this._context.LogRecords.Where(x => x.UserId == userId);
-        //    return Ok(logs);
-        //}
+        [HttpPut("[action]")]
+        public ActionResult Delete([FromBody] T log)
+        {
+            this._repository.Remove(log);
+            return Ok(log);
+        }
+        
 
         //[HttpPost("[action]")]
         //public ActionResult GenerateMissingLogs([FromQuery] Guid userId)

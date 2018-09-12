@@ -1,23 +1,17 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, Input} from '@angular/core';
 import {WeightLiftingExercise, WeightLiftingLog} from "../../models/weight-lifting-log-model";
 import {FormArray, FormControl, FormGroup, FormBuilder, Validators} from "@angular/forms";
 import {AbstractControlOptions} from "@angular/forms/src/model";
+import {forEach} from "@angular/router/src/utils/collection";
 
 @Component({
   selector: 'weight-lifting-input',
-  template: `    
-    <!--div *ngFor="let e of exercises">
-      <input type="text" class="form-control" [(ngModel)]="e.Name" placeholder="Exercise Name" aria-label="Username" aria-describedby="basic-addon1">
-      <input type="number" class="form-control" [(ngModel)]="e.Weight" placeholder="Weight" aria-label="Username" aria-describedby="basic-addon1">
-      <input type="number" class="form-control" [(ngModel)]="e.Reps" placeholder="Reps" aria-label="Username" aria-describedby="basic-addon1">
-      <input type="number" class="form-control" style="margin-bottom: 10px" [(ngModel)]="e.Sets" placeholder="Sets" aria-label="Username" aria-describedby="basic-addon1">
-    </div>-->
-    
+  template: `   
     <form [formGroup]="weightLiftingLogForm">
       <fieldset formArrayName="exercises">
         <div *ngFor="let e of formData['controls']; let i = index">
           <form [formGroup]="e">
-          <input type="text" class="form-control" [attr.id]="'exerciseName'+i" formControlName="Name" placeholder="Exercise Name" aria-label="Username" aria-describedby="basic-addon1">
+            <input type="text" class="form-control" [attr.id]="'exerciseName'+i" formControlName="Name" placeholder="Exercise Name" aria-label="Username" aria-describedby="basic-addon1">
             <input type="number" class="form-control" formControlName="Sets" placeholder="Sets" aria-label="Username" aria-describedby="basic-addon1">
             <input type="number" class="form-control" formControlName="Reps" placeholder="Reps" aria-label="Username" aria-describedby="basic-addon1">
             <input type="number" class="form-control" formControlName="Weight" style="margin-bottom: 10px" placeholder="Weight" aria-label="Username" aria-describedby="basic-addon1">
@@ -31,6 +25,8 @@ import {AbstractControlOptions} from "@angular/forms/src/model";
 })
 
 export class WeightliftingInputComponent implements OnInit {
+  @Input() weightLiftingLog: WeightLiftingLog;
+
   type: string;
   weight: number;
   reps: number;
@@ -49,27 +45,38 @@ export class WeightliftingInputComponent implements OnInit {
     this.initializeForm();
   }
 
-  public returnData(): any{
-    let newObject: any = ({
-      type: this.type,
-        weight: this.weight,
-        reps: this.reps,
-        sets: this.sets
-    })
-    return newObject;
-  }
-
   onClickedAddNewExercise(): void {
-    this.formData['controls'].push(this.createNewExerciseGroup());
-    console.log(this.weightLiftingLogForm);
+    let form = this.weightLiftingLogForm.get('exercises') as FormArray;
+    form.push(this.createNewExerciseGroup());
   }
 
-  getWeightLiftingLog(): WeightLiftingLog {
+  getWeightLiftingLogForCreate(): WeightLiftingLog {
     let log: WeightLiftingLog = new WeightLiftingLog();
     let exercises = this.weightLiftingLogForm.get('exercises').value;
 
     log.Exercises = exercises;
     log.TotalSets = this.computeTotalSets(exercises);
+
+    return log;
+  }
+
+  getWeightLiftingLogForUpdate(): WeightLiftingLog {
+    let log: WeightLiftingLog = this.weightLiftingLog;
+
+    let newExercises = (<Array<WeightLiftingExercise>>this.weightLiftingLogForm.get('exercises').value);//.find(e => e.WeightLiftingExerciseId == x.WeightLiftingExerciseId);
+
+    newExercises.forEach((exercise, index) => {
+      if (index+1 > log.Exercises.length) {
+        log.Exercises.push(new WeightLiftingExercise());
+      }
+
+      log.Exercises[index].Name = exercise.Name;
+      log.Exercises[index].Reps = exercise.Reps;
+      log.Exercises[index].Weight = exercise.Weight;
+      log.Exercises[index].Sets = exercise.Sets;
+    });
+
+    log.TotalSets = this.computeTotalSets(log.Exercises);
 
     return log;
   }
@@ -82,19 +89,42 @@ export class WeightliftingInputComponent implements OnInit {
   }
 
   private initializeForm(): void {
-    let group: FormGroup = this.createNewExerciseGroup();
+    let group: Array<FormGroup> = [];
+
+    if (this.weightLiftingLog) {
+      group = this.createNewExerciseGroupFromExisting(this.weightLiftingLog)
+    } else {
+      group.push(this.createNewExerciseGroup());
+    }
 
     this.weightLiftingLogForm = this.formBuilder.group({
-      'exercises': this.formBuilder.array([group])
+      'exercises': this.formBuilder.array(group)
     });
   }
 
   private createNewExerciseGroup(): FormGroup {
     let group: FormGroup = new FormGroup({
-      'Name': new FormControl(null, Validators.required),
+      'Name': new FormControl(   null, Validators.required),
       'Sets': new FormControl(null, Validators.required),
       'Reps': new FormControl(null, Validators.required),
       'Weight': new FormControl(null, Validators.required)
+    });
+
+    return group;
+  }
+
+  private createNewExerciseGroupFromExisting(weightLiftingLog: WeightLiftingLog): Array<FormGroup> {
+    let group: Array<FormGroup> = [];
+
+    weightLiftingLog.Exercises.forEach(x => {
+      group.push(
+        new FormGroup({
+          'Name': new FormControl(x.Name, Validators.required),
+          'Sets': new FormControl(x.Sets, Validators.required),
+          'Reps': new FormControl(x.Reps, Validators.required),
+          'Weight': new FormControl(x.Weight, Validators.required)
+        })
+      )
     });
 
     return group;

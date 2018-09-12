@@ -1,4 +1,4 @@
-import { BrowserModule } from '@angular/platform-browser';
+import {BrowserModule, DomSanitizer} from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
@@ -22,6 +22,9 @@ import {WeightLiftingLogDisplayComponent} from "./display-components/weight-lift
 import {OAuthModule} from "angular-oauth2-oidc";
 import {SharedApplicationStateService} from "./Services/shared-application-state.service";
 import {BeginNewLogModalComponent} from "./input-components/begin-new-log-modal.component";
+import {MatIconModule, MatIconRegistry} from "@angular/material";
+import {IconRowComponent} from "./Shared/icon-row.component";
+import {EditLogModalComponent} from "./Shared/edit-log-modal.component";
 
 @NgModule({
   declarations: [
@@ -36,7 +39,9 @@ import {BeginNewLogModalComponent} from "./input-components/begin-new-log-modal.
     CardioInputComponent,
     CurrentLogsComponent,
     WeightLiftingLogDisplayComponent,
-    BeginNewLogModalComponent
+    BeginNewLogModalComponent,
+    IconRowComponent,
+    EditLogModalComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -51,10 +56,15 @@ import {BeginNewLogModalComponent} from "./input-components/begin-new-log-modal.
       { path: 'counter', component: CounterComponent },
       { path: 'fetch-data', component: FetchDataComponent },
       { path: '', component: HomeComponent }
-    ])
+    ]),
+    MatIconModule
   ],
   providers: [DialogService, LogApiSubjectService, ApiService, SubjectService, SharedApplicationStateService],
   bootstrap: [AppComponent],
-  entryComponents: [CreateLogModalComponent, BeginNewLogModalComponent]
+  entryComponents: [CreateLogModalComponent, BeginNewLogModalComponent, EditLogModalComponent]
 })
-export class AppModule { }
+export class AppModule {
+  constructor(private matIconRegistry: MatIconRegistry, private domSanitizer: DomSanitizer){
+    matIconRegistry.addSvgIconSet(domSanitizer.bypassSecurityTrustResourceUrl('/assets/sprite.svg'));
+  }
+}

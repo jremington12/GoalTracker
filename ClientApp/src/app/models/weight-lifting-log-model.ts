@@ -1,7 +1,6 @@
 import {Log} from "./log-base";
 
 export class WeightLiftingLog extends Log {
-  public WeightLiftingLogId: number;
   public Exercises: Array<WeightLiftingExercise> = [];
   public UserId: string;
   public TotalSets: number;

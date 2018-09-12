@@ -12,6 +12,7 @@ const BASE_URL = "http://localhost:8001";
 const LOG_CONTROLLER = 'Log';
 const WEIGHT_LIFTING_ACTION = 'WeightLifting';
 const WEIGHT_LIFTING_LOG_CONTROLLER = 'WeightLiftingLog'
+const LOG_RECORD_CONTROLLER = 'LogRecord'
 const HOME_CONTROLLER = 'Home';
 const REGISTER = 'Register';
 const LOGIN = 'Login';
@@ -26,9 +27,21 @@ export class ApiService {
     return this._http.post<WeightLiftingLog>(`${BASE_URL}/${WEIGHT_LIFTING_LOG_CONTROLLER}/Post`, weightLiftingLog);
   }
 
+  public UpdateWeightLiftingLog(weightLiftingLog: WeightLiftingLog): Observable<WeightLiftingLog> {
+    weightLiftingLog.UserId = this.sas.getUserId();
+    return this._http.put<WeightLiftingLog>(`${BASE_URL}/${WEIGHT_LIFTING_LOG_CONTROLLER}/Put`, weightLiftingLog);
+  }
+
   public GetWeightLiftingLog(): Observable<WeightLiftingLog> {
     let userId = this.sas.getUserId();
-    return this._http.get<WeightLiftingLog>(`${BASE_URL}/${WEIGHT_LIFTING_LOG_CONTROLLER}/Get?UserId=${userId}`);
+    return this._http.get<WeightLiftingLog>(`${BASE_URL}/${WEIGHT_LIFTING_LOG_CONTROLLER}/GetToday?UserId=${userId}`);
+  }
+
+  public DeleteWeightLiftingLog(weightLiftingLog: WeightLiftingLog): Observable<WeightLiftingLog> {
+    return this._http.put<WeightLiftingLog>(`${BASE_URL}/${WEIGHT_LIFTING_LOG_CONTROLLER}/Delete`, weightLiftingLog);
+    //let body = JSON.stringify(weightLiftingLog);
+    //let result = this._http.request('delete', `${BASE_URL}/${WEIGHT_LIFTING_LOG_CONTROLLER}/Delete);
+    //return (<Observable<WeightLiftingLog>>result);
   }
 
   public Login(loginModel: LoginModel): Observable<any> {
@@ -42,13 +55,13 @@ export class ApiService {
   }
 
   public CreateLogRecord(logRecord: LogRecord): Observable<LogRecord> {
-    let result = this._http.post<LogRecord>(`${BASE_URL}/${LOG_CONTROLLER}/${LOG_RECORD}`, logRecord);
+    let result = this._http.post<LogRecord>(`${BASE_URL}/${LOG_RECORD_CONTROLLER}/Post`, logRecord);
     return result;
   }
 
   public GetLogRecords(): Observable<Array<LogRecord>> {
     let userId = this.sas.getUserId();
-    let result = this._http.get<Array<LogRecord>>(`${BASE_URL}/${LOG_CONTROLLER}/${LOG_RECORD}?UserId=${userId}`);
+    let result = this._http.get<Array<LogRecord>>(`${BASE_URL}/${LOG_RECORD_CONTROLLER}/Get?UserId=${userId}`);
     return result;
   }
 }

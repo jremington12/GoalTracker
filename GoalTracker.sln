@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.27428.2043
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GoalTracker", "GoalTracker.csproj", "{6BB0FE20-4C49-462F-A7AC-C09C5F3D3EFC}"
 EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{80A5FAC8-3E36-487E-BD36-5BCBE6CCFA47}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{6BB0FE20-4C49-462F-A7AC-C09C5F3D3EFC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6BB0FE20-4C49-462F-A7AC-C09C5F3D3EFC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6BB0FE20-4C49-462F-A7AC-C09C5F3D3EFC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{80A5FAC8-3E36-487E-BD36-5BCBE6CCFA47}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{80A5FAC8-3E36-487E-BD36-5BCBE6CCFA47}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{80A5FAC8-3E36-487E-BD36-5BCBE6CCFA47}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{80A5FAC8-3E36-487E-BD36-5BCBE6CCFA47}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -17,6 +17,13 @@ export class LogApiSubjectService {
       );
   }
 
+  public UpdateWeightLiftingLog(weightLiftingLog: WeightLiftingLog): void {
+    this.apiService.UpdateWeightLiftingLog(weightLiftingLog)
+      .subscribe(result => this.subjectService.onWeightLiftingLogUpdated.next(result),
+        error => console.log(error)
+      );
+  }
+
   public GetWeightLiftingLog(): void {
     this.apiService.GetWeightLiftingLog()
       .subscribe(result => {
@@ -38,7 +45,7 @@ export class LogApiSubjectService {
   public Register(registerModel: RegisterModel) {
     this.apiService.Register(registerModel)
       .subscribe(result => {
-          this.subjectService.onLogRecordCreated.next(result)
+          console.log('registered');
         },
         error => console.log(error)
       );
@@ -47,7 +54,7 @@ export class LogApiSubjectService {
   public CreateLogRecord(logRecord: LogRecord) {
     this.apiService.CreateLogRecord(logRecord)
       .subscribe(result => {
-          console.log(result)
+          this.subjectService.onLogRecordCreated.next(result);
         },
         error => console.log(error)
       );
@@ -60,5 +67,14 @@ export class LogApiSubjectService {
         },
         error => console.log(error)
       );
+  }
+
+  public DeleteWeightLiftingLog(weightLiftingLog: WeightLiftingLog) {
+    this.apiService.DeleteWeightLiftingLog(weightLiftingLog)
+      .subscribe(result => {
+        this.subjectService.onWeightLiftingLogDeleted.next(result)
+      },
+      error => console.log(error)
+    );
   }
 }

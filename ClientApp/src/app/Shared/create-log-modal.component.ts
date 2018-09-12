@@ -1,9 +1,10 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {Component, Input, OnInit, ViewChild} from '@angular/core';
 import {DialogComponent, DialogService} from "ng2-bootstrap-modal";
 import {LogApiSubjectService} from "../Services/log-api-subject.service";
 import {SubjectService} from "../Services/subject-service";
 import {WeightLiftingLog} from "../models/weight-lifting-log-model";
 import {WeightliftingInputComponent} from "../input-components/weightlifting-input-component/weightlifting-input.component";
+import {LogType} from "../models/log-base";
 
 export interface ConfirmModel {
 }
@@ -19,15 +20,8 @@ export interface ConfirmModel {
         <button type="button" class="close" (click)="close()" >&times;</button>
       </div>
       <div class="modal-body">
-        <div class="form-group">
-          <label for="sel1">Select Log Type:</label>
-          <select class="form-control" id="sel1" [(ngModel)]="choice">
-            <option value="0">Weight Lifting</option>
-            <option value="1">Cardio</option>
-          </select>
-        </div>
-        <weight-lifting-input *ngIf="choice == 0"></weight-lifting-input>
-        <cardio-input *ngIf="choice == 1"></cardio-input>
+        <weight-lifting-input *ngIf="logType == logTypeRef.WeightLiftingLog"></weight-lifting-input>
+        <cardio-input *ngIf="logType == logTypeRef.CardioLog"></cardio-input>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-primary" (click)="confirm()">OK</button>
@@ -41,6 +35,9 @@ export interface ConfirmModel {
 
 export class CreateLogModalComponent extends DialogComponent<ConfirmModel, boolean> implements ConfirmModel, OnInit {
   choice: any = -1;
+  @Input() logType: LogType;
+
+  logTypeRef = LogType;
 
   @ViewChild(WeightliftingInputComponent) weightLiftingInputComponent: WeightliftingInputComponent;
 
@@ -54,20 +51,22 @@ export class CreateLogModalComponent extends DialogComponent<ConfirmModel, boole
   }
 
   confirm() {
-    switch (this.choice) {
-      case '0':
-        console.log(this.weightLiftingInputComponent.getWeightLiftingLog());
-        this.apiSubject.CreateWeightLiftingLog(this.weightLiftingInputComponent.getWeightLiftingLog());
-        this.dialogService.removeDialog(this);
+    switch (this.logType) {
+      case LogType.WeightLiftingLog:
+        console.log(this.weightLiftingInputComponent.getWeightLiftingLogForCreate());
+        this.apiSubject.CreateWeightLiftingLog(this.weightLiftingInputComponent.getWeightLiftingLogForCreate());
         break;
-      case 1:
+      case LogType.CardioLog:
         break;
     }
-    //this.apiSubject.CreateWeightLiftingLog();
   }
 
   onWeightLiftingLogCreated(result: WeightLiftingLog) {
+    if (!result) {
+      return;
+    }
     console.log('It worked for post!: ', result);
+    this.dialogService.removeDialog(this);
     this.apiSubject.GetWeightLiftingLog();
   }
 
@@ -77,7 +76,6 @@ export class CreateLogModalComponent extends DialogComponent<ConfirmModel, boole
 
   initializeSubscriptions(): void {
     this.subject.onWeightLiftingLogCreated.subscribe(result => this.onWeightLiftingLogCreated(result));
-    //this.subject.onWeightLiftingLogRetrieved.subscribe(result => this.onWeightLiftingLogRetrieved(result));
   }
 }
 

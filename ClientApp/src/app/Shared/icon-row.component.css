@@ -1,0 +1,24 @@
+.icon-container {
+  display: flex;
+}
+
+.icon {
+  margin-right: 3px;
+  margin-left: 3px;
+  transform: scale(1.3);
+  cursor: pointer;
+}
+
+.add {
+  color: green;
+  tooltip: 'hi';
+}
+
+.remove {
+  color: red;
+}
+
+.edit {
+  color: blue;
+}
+

@@ -27,7 +27,6 @@ export class CurrentLogsComponent implements OnInit {
   ngOnInit() {
     this.initializeSubscriptions();
     this.apiSubject.GetLogRecords();
-    //this.apiSubject.GetWeightLiftingLog();
   }
 
   onLogRecordsRetrieved(result: Array<LogRecord>) {
@@ -35,9 +34,6 @@ export class CurrentLogsComponent implements OnInit {
     console.log('got heem: ', this.logRecords);
 
     this.initializeLogDisplays();
-    //result.forEach(x => this.logs.push(x));
-
-    //this.logs.push(result[0]);
   }
 
   initializeLogDisplays(): void {
@@ -46,6 +42,7 @@ export class CurrentLogsComponent implements OnInit {
     }
 
     this.showWeightLiftingLogs = this.logRecords.find(x => x.LogType == LogType.WeightLiftingLog) ? true : false;
+    this.showCardioLogs = this.logRecords.find(x => x.LogType == LogType.CardioLog) ? true : false;
     console.log('show ', this.showWeightLiftingLogs);
   }
 

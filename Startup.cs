@@ -37,6 +37,7 @@ namespace GoalTracker
             });
 
             services.ConfigureApplicationCookie(options => options.LoginPath = "/login");
+          
 
             // In production, the Angular files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
