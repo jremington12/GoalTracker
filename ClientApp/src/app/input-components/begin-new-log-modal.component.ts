@@ -1,4 +1,4 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {Component, Input, OnInit, ViewChild} from '@angular/core';
 import {DialogComponent, DialogService} from "ng2-bootstrap-modal";
 import {LogApiSubjectService} from "../Services/log-api-subject.service";
 import {SubjectService} from "../Services/subject-service";
@@ -6,6 +6,8 @@ import {WeightLiftingLog} from "../models/weight-lifting-log-model";
 import {WeightliftingInputComponent} from "../input-components/weightlifting-input-component/weightlifting-input.component";
 import {LogRecord} from "../models/LogRecord";
 import {SharedApplicationStateService} from "../Services/shared-application-state.service";
+import {forEach} from "@angular/router/src/utils/collection";
+import {LogType} from "../models/log-base";
 
 export interface ConfirmModel {
 }
@@ -25,8 +27,8 @@ export interface ConfirmModel {
         <div class="form-group">
           <label for="sel1">Select Log Type:</label>
           <select class="form-control" id="sel1" [(ngModel)]="choice">
-            <option value="0">Weight Lifting</option>
-            <option value="1">Cardio</option>
+            <option *ngIf="showWeightLiftingLog" value="0">Weight Lifting</option>
+            <option *ngIf="showCardioLog" value="1">Cardio</option>
           </select>
         </div>
       </div>
@@ -41,17 +43,23 @@ export interface ConfirmModel {
 
 
 export class BeginNewLogModalComponent extends DialogComponent<ConfirmModel, boolean> implements ConfirmModel, OnInit {
-  choice: any = -1;
-
   @ViewChild(WeightliftingInputComponent) weightLiftingInputComponent: WeightliftingInputComponent;
+
+  @Input() logRecords: Array<LogRecord> = [];
+
+  choice: any = -1;
+  showWeightLiftingLog = false;
+  showCardioLog = false;
 
   constructor(dialogService: DialogService, private apiSubject: LogApiSubjectService, private subject: SubjectService, private sas: SharedApplicationStateService) {
     super(dialogService);
   }
 
   ngOnInit() {
-    this.initializeSubscriptions();
+    console.log('log records: ', this.logRecords);
 
+    this.initializeSubscriptions();
+    this.initializePossibleLogRecords();
   }
 
   confirm() {
@@ -67,10 +75,26 @@ export class BeginNewLogModalComponent extends DialogComponent<ConfirmModel, boo
       return;
     }
 
-    console.log('removing!: ', result);
-    //this.subject.onLogRecordCreated.unsubscribe();
-    this.dialogService.removeDialog(this);
+    this.result = true;
+    this.close();
     this.subject.onLogRecordCreated.next(null);
+  }
+
+  initializePossibleLogRecords(): void {
+    this.logRecords.forEach(lr => this.initializeLogRecord(lr));
+  }
+
+  initializeLogRecord(logRecord: LogRecord): void {
+    switch (logRecord.LogType) {
+      case LogType.WeightLiftingLog:
+        this.showWeightLiftingLog = false
+        return;
+      case LogType.CardioLog:
+        this.showCardioLog = false
+        return;
+      default:
+        return;
+    }
   }
 
   initializeSubscriptions(): void {

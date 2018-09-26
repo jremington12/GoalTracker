@@ -1,13 +1,17 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {DialogOptions, DialogService} from "ng2-bootstrap-modal";
 import {CreateLogModalComponent} from "../Shared/create-log-modal.component";
 import {BeginNewLogModalComponent} from "../input-components/begin-new-log-modal.component";
+import {LogRecord} from "../models/LogRecord";
+import {SubjectService} from "../Services/subject-service";
+import {LogType} from "../models/log-base";
+import {LogApiSubjectService} from "../Services/log-api-subject.service";
 
 @Component({
   selector: 'landing-page',
   styleUrls: ['landing-page.component.css'],
   template: `<body>
-                <div class="container">
+                <div class="landing-page-container">
                   <header class="header">
                     <div class="title">Goal Tracker</div>
                   </header>
@@ -29,30 +33,37 @@ import {BeginNewLogModalComponent} from "../input-components/begin-new-log-modal
                 </div>
             </body>`
 })
-export class LandingPageComponent {
-  isCreating = false;
+export class LandingPageComponent implements OnInit {
+  public logRecords: Array<LogRecord> = [];
 
-  constructor(private dialogService: DialogService) {}
+  constructor(private dialogService: DialogService, private subject: SubjectService, private apiSubject: LogApiSubjectService) {}
+
+  ngOnInit(): void {
+    this.initializeSubscriptions();
+    this.apiSubject.GetLogRecords();
+  }
+
+  onLogRecordsRetrieved(result: Array<LogRecord>) {
+    if (!result) {
+      console.log('bad result');
+      return;
+    }
+
+    console.log('step 1 complete', result);
+
+    this.logRecords = result;
+  }
 
   onBeginNewLogClicked(): void {
-    let options: DialogOptions = {};
-    options.backdropColor = 'white';
+    let options: DialogOptions = { backdropColor: 'white' };
 
-    let disposable = this.dialogService.addDialog(BeginNewLogModalComponent, {
-      title:'Confirm title',
-      message:'Confirm message',
-      test:'nice'}, options)
+    let disposable = this.dialogService.addDialog(BeginNewLogModalComponent, { logRecords: this.logRecords }, options)
       .subscribe((isConfirmed)=>{
-        //We get dialog result
+        console.log('Confirmation: ', isConfirmed);
         if(isConfirmed) {
           alert('accepted');
         }
-        else {
-          alert('declined');
-        }
       });
-    //We can close dialog calling disposable.unsubscribe();
-    //If dialog was not closed manually close it by timeout
     setTimeout(()=>{
       disposable.unsubscribe();
     },3000000);
@@ -62,24 +73,19 @@ export class LandingPageComponent {
     let options: DialogOptions = {};
     options.backdropColor = 'white';
 
-    let disposable = this.dialogService.addDialog(CreateLogModalComponent, {
-      title:'Confirm title',
-      message:'Confirm message',
-      test:'nice'}, options)
+    let disposable = this.dialogService.addDialog(CreateLogModalComponent, null, options)
       .subscribe((isConfirmed)=>{
-        //We get dialog result
         if(isConfirmed) {
           alert('accepted');
         }
-        else {
-          alert('declined');
-        }
       });
-    //We can close dialog calling disposable.unsubscribe();
-    //If dialog was not closed manually close it by timeout
     setTimeout(()=>{
       disposable.unsubscribe();
     },3000000);
+  }
+
+  initializeSubscriptions(): void {
+    this.subject.onLogRecordsRetrieved.subscribe(result => this.onLogRecordsRetrieved(result));
   }
 }
 

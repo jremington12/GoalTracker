@@ -1,13 +1,8 @@
-.container {
+.landing-page-container {
   max-width: 120rem;
   margin: auto;
   padding-left: 0px;
   padding-right: 0px
-}
-
-.landing-container {
-  display: flex;
-  justify-content: left;
 }
 
 .header {

@@ -16,7 +16,7 @@ import {EditLogModalComponent} from "../Shared/edit-log-modal.component";
     <div class="card">
       <div class="card-body">
         <div style="display: flex; justify-content: space-between; border-bottom: 1px solid; margin-bottom: 5px">
-          <div style="font-weight: bold">Weight Lifting</div>
+          <div style="font-weight: bold">Weight Lifing</div>
           <icon-row [showAddIcon]="!weightLiftingLog" [showEditIcon]="weightLiftingLog" [showRemoveIcon]="weightLiftingLog"
             (addClicked)="onCreateClicked()" (removeClicked)="onRemoveClicked()" (editClicked)="onEditClicked()"></icon-row>
         </div>
@@ -42,7 +42,7 @@ export class WeightLiftingLogDisplayComponent {
 
   @Input() weightLiftingLogs: Array<WeightLiftingLog> = [];
 
-  weightLiftingLog: WeightLiftingLog = null;
+  weightLiftingLog: WeightLiftingLog;
   isLoading = false;
   utilities = Utilities;
 

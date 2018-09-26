@@ -17,7 +17,6 @@ import {LogRecord} from "../../models/LogRecord";
 })
 export class CurrentLogsComponent implements OnInit {
   public logRecords: Array<LogRecord> = [];
-  public logType = LogType;
 
   public showWeightLiftingLogs = false;
   public showCardioLogs = false;
@@ -31,7 +30,7 @@ export class CurrentLogsComponent implements OnInit {
 
   onLogRecordsRetrieved(result: Array<LogRecord>) {
     this.logRecords = result;
-    console.log('got heem: ', this.logRecords);
+    console.log('from cur logs: ', this.logRecords);
 
     this.initializeLogDisplays();
   }
@@ -43,11 +42,10 @@ export class CurrentLogsComponent implements OnInit {
 
     this.showWeightLiftingLogs = this.logRecords.find(x => x.LogType == LogType.WeightLiftingLog) ? true : false;
     this.showCardioLogs = this.logRecords.find(x => x.LogType == LogType.CardioLog) ? true : false;
-    console.log('show ', this.showWeightLiftingLogs);
   }
 
   initializeSubscriptions(): void {
-    this.subject.onLogRecordsRetrieved.subscribe(result => this.onLogRecordsRetrieved(result));
+     this.subject.onLogRecordsRetrieved.subscribe(result => this.onLogRecordsRetrieved(result));
   }
 }
 
